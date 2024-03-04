@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -7,17 +8,15 @@ export default function Home() {
   const count = localStorage.getItem('pageVisitCount');
   useEffect(() => {
 
-    // If the counter exists, use it, otherwise default to 0
     const initialCount = count ? parseInt(count, 10) : 0;
 
     // Increment the counter
     const newCount = initialCount + 1;
 
-    setCounter(prevCounter => newCount); // Set the counter to the new count
+    setCounter(prevCounter => newCount);
 
-    // Update the counter value in localStorage
     localStorage.setItem('pageVisitCount', newCount.toString());
-  }, []); // This effect runs only once when the component mounts
+  }, []);
 
   return (
     <main className="flex min-h-screen items-center justify-center p-24">
